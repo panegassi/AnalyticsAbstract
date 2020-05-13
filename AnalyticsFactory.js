@@ -11,11 +11,25 @@ var AnalyticsAbstract = {
 	 	 * @varabiel platform
 	 	 * @type string
 	 	 *
-	 	 * @values 'APP_VIEW': para os aplicativos
-	 	 * @values 'WEB_PAGE': para os sites
+	 	 * @values 'APP_VIEW': para os aplicativos nativos + webview
+	 	 * @values 'WEB_PAGE': para os websites
 	 	*/
 		platform 	: undefined,
-		payload 	: {}
+		payload 	: {},
+		keys 		: {
+			'eventName' 			: 'event',
+			'pathName'				: 'name',
+			'title' 				: 'title',
+			'eventCategory' 		: 'eventCategory',
+			'eventAction'			: 'eventAction',
+			'eventLabel' 			: 'eventLabel',
+			'eventValue'			: 'eventValue',
+			'eventNonInteraction' 	: 'eventNonInteraction',
+			'customDimensions'		: 'customDimensions',
+			'customMetrics' 		: 'customMetrics',
+			'contentGroupping' 		: 'contentGroupping',
+			'ecommerce' 			: 'ecommerce'
+		}
 	},
 
 
@@ -296,7 +310,7 @@ var AnalyticsAbstract = {
 		let ecommerce = this.getVariablesEcommerce();
 
 		if (!this.isVariableUndefined(ecommerce)) {
-			this.setConfigPayloadKeyValue('ecommerce', ecommerce);
+			this.setConfigPayloadKeyValue(this.getConfigKeys('ecommerce'), ecommerce);
 		}
 
 	}, // function addEcommerceData
@@ -307,7 +321,7 @@ var AnalyticsAbstract = {
 		let contentGroupping = this.getVariablesContentGroupping();
 
 		if (!this.isVariableUndefined(contentGroupping)) {
-			this.setConfigPayloadKeyValue('contentGroupping', contentGroupping);
+			this.setConfigPayloadKeyValue(this.getConfigKeys('contentGroupping'), contentGroupping);
 		}
 
 	}, // function addContentGrouppingData
@@ -318,7 +332,7 @@ var AnalyticsAbstract = {
 		let title = this.getVariablesTitle();
 
 		if (!this.isVariableUndefined(title)) {
-			this.setConfigPayloadKeyValue('title', title);
+			this.setConfigPayloadKeyValue(this.getConfigKeys('title'), title);
 		}
 
 	}, // function addTitleData
@@ -329,7 +343,7 @@ var AnalyticsAbstract = {
 		let pathName = this.getVariablesPathName();
 
 		if (!this.isVariableUndefined(pathName)) {
-			this.setConfigPayloadKeyValue('name', pathName);
+			this.setConfigPayloadKeyValue(this.getConfigKeys('pathName'), pathName);
 		}
 
 	}, // function addPathNameData
@@ -340,7 +354,7 @@ var AnalyticsAbstract = {
 		let eventName = this.getVariablesEventName();
 
 		if (!this.isVariableUndefined(eventName)) {
-			this.setConfigPayloadKeyValue('event', eventName);
+			this.setConfigPayloadKeyValue(this.getConfigKeys('eventName'), eventName);
 		}
 
 	}, // function addEventNameData
@@ -351,7 +365,7 @@ var AnalyticsAbstract = {
 		let eventCategory = this.getVariablesEventCategory();
 
 		if (!this.isVariableUndefined(eventCategory)) {
-			this.setConfigPayloadKeyValue('eventCategory', eventCategory);
+			this.setConfigPayloadKeyValue(this.getConfigKeys('eventCategory'), eventCategory);
 		}
 
 	}, // function addEventCategoryData
@@ -362,7 +376,7 @@ var AnalyticsAbstract = {
 		let eventAction = this.getVariablesEventAction();
 
 		if (!this.isVariableUndefined(eventAction)) {
-			this.setConfigPayloadKeyValue('eventAction', eventAction);
+			this.setConfigPayloadKeyValue(this.getConfigKeys('eventAction'), eventAction);
 		}
 
 	}, // function addEventActionData
@@ -373,7 +387,7 @@ var AnalyticsAbstract = {
 		let eventLabel = this.getVariablesEventLabel();
 
 		if (!this.isVariableUndefined(eventLabel)) {
-			this.setConfigPayloadKeyValue('eventLabel', eventLabel);
+			this.setConfigPayloadKeyValue(this.getConfigKeys('eventLabel'), eventLabel);
 		}
 
 	}, // function addEventLabelData
@@ -384,7 +398,7 @@ var AnalyticsAbstract = {
 		let eventValue = this.getVariablesEventValue();
 
 		if (!this.isVariableUndefined(eventValue)) {
-			this.setConfigPayloadKeyValue('eventValue', eventValue);
+			this.setConfigPayloadKeyValue(this.getConfigKeys('eventValue'), eventValue);
 		}
 
 	}, // function addEventValueData
@@ -395,7 +409,7 @@ var AnalyticsAbstract = {
 		let eventNonInteraction = this.getVariablesEventNonInteraction();
 
 		if (!this.isVariableUndefined(eventNonInteraction)) {
-			this.setConfigPayloadKeyValue('eventNonInteraction', eventNonInteraction);
+			this.setConfigPayloadKeyValue(this.getConfigKeys('eventNonInteraction'), eventNonInteraction);
 		}
 
 	}, // function addEventNonInteractionData
@@ -446,6 +460,10 @@ var AnalyticsAbstract = {
 		return this._config.payload;
 	},
 
+
+	getConfigKeys: function(key) {
+		return this._config.keys[key];
+	},
 
 	resetVariablesEcommerce: function() {
 		this._variables.ecommerce = undefined;
@@ -748,4 +766,3 @@ AnalyticsAbstract.sendView({
 	}
 
 });
-
