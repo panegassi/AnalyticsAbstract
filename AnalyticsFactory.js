@@ -8,7 +8,7 @@ var AnalyticsAbstract = {
 	
 	_config: {
 		/**
-	 	 * @varabiel platform
+	 	 * @variable platform
 	 	 * @type string
 	 	 *
 	 	 * @values 'APP_VIEW': para os aplicativos nativos + webview
