@@ -11,8 +11,8 @@ var AnalyticsAbstract = {
 	 	 * @varabiel platform
 	 	 * @type string
 	 	 *
-	 	 * @values 'APP_VIEW': para os aplicativos mbj, mbf, spd, wallet
-	 	 * @values 'WEB_PAGE': para os sites ibj, ibf
+	 	 * @values 'APP_VIEW': para os aplicativos
+	 	 * @values 'WEB_PAGE': para os sites
 	 	*/
 		platform 	: undefined,
 		payload 	: {}
