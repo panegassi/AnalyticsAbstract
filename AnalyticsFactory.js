@@ -18,13 +18,13 @@ var AnalyticsAbstract = {
 		payload 	: {},
 		keys 		: {
 			'eventName' 			: 'event',
-			'pathName'				: 'name',
-			'title' 				: 'title',
+			'pathName'			: 'name',
+			'title' 			: 'title',
 			'eventCategory' 		: 'eventCategory',
 			'eventAction'			: 'eventAction',
 			'eventLabel' 			: 'eventLabel',
 			'eventValue'			: 'eventValue',
-			'eventNonInteraction' 	: 'eventNonInteraction',
+			'eventNonInteraction' 		: 'eventNonInteraction',
 			'customDimensions'		: 'customDimensions',
 			'customMetrics' 		: 'customMetrics',
 			'contentGroupping' 		: 'contentGroupping',
@@ -66,7 +66,7 @@ var AnalyticsAbstract = {
 		 *
 		 * @values categoria de seu evento
 		 */
-		eventCategory 		: undefined,
+		eventCategory 			: undefined,
 
 		/**
 		 * @variable eventAction
@@ -74,7 +74,7 @@ var AnalyticsAbstract = {
 		 *
 		 * @values ação de seu evento
 		 */
-		eventAction 		: undefined,
+		eventAction 			: undefined,
 
 		/**
 		 * @variable eventLabel
@@ -85,8 +85,8 @@ var AnalyticsAbstract = {
 		eventLabel 			: undefined,
 
 		/**
-		 * @variable eventCategory
-		 * @type float
+		 * @variable eventLabel
+		 * @type integer
 		 *
 		 * @values valor de seu evento
 		 */
@@ -99,7 +99,7 @@ var AnalyticsAbstract = {
 		 * @values true - se o evento for de não interação
 		 * @values false (default) - se o evento for de interação
 		 */
-		eventNonInteraction	: undefined,
+		eventNonInteraction		: undefined,
 
 		/**
 		 * @variable customDimensions
@@ -107,7 +107,7 @@ var AnalyticsAbstract = {
 		 *
 		 * @values customDimensions: { dimension1: value, dimension2: value }
 		 */
-		customDimensions 	: undefined,
+		customDimensions 		: undefined,
 
 		/**
 		 * @variable customMetrics
@@ -115,7 +115,7 @@ var AnalyticsAbstract = {
 		 *
 		 * @values customMetrics: { metric1: value, metric2: value }
 		 */
-		customMetrics		: undefined,
+		customMetrics			: undefined,
 
 		/**
 		 * @variable contentGroupping
@@ -123,7 +123,7 @@ var AnalyticsAbstract = {
 		 *
 		 * @values grupo de conteudo
 		 */
-		contentGroupping 	: undefined,
+		contentGroupping 		: undefined,
 
 		/**
 		 * @variable ecommerce
@@ -288,7 +288,7 @@ var AnalyticsAbstract = {
 	addCustomVariables: function() {
 
 		let customDimensions 	= this.getVariablesCustomDimensions();
-		let customMetrics 		= this.getVariablesCustomMetrics();
+		let customMetrics 	= this.getVariablesCustomMetrics();
 
 		if (!this.isVariableUndefined(customDimensions)) {
 			Object.entries(customDimensions).forEach(function(key, value) {
