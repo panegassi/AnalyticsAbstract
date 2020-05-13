@@ -85,7 +85,7 @@ var AnalyticsAbstract = {
 		eventLabel 			: undefined,
 
 		/**
-		 * @variable eventLabel
+		 * @variable eventValue
 		 * @type integer
 		 *
 		 * @values valor de seu evento
